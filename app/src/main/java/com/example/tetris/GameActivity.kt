@@ -23,6 +23,10 @@ class GameActivity : AppCompatActivity() {
         appPreferences = AppPreferences (this)
         appModel.setPreferences (appPreferences)
         val btnRestart = findViewById<Button>(R.id.btn_restart)
+        val btnLeft = findViewById<Button>(R.id.btn_Left)
+        val btnRight = findViewById<Button>(R.id.btn_Right)
+        val btnDown = findViewById<Button>(R.id.btn_Down)
+        val btnRotate = findViewById<Button>(R.id.btn_Rotate)
         tvHighScore = findViewById <TextView>(R.id.tv_high_score)
         tvCurrentScore = findViewById <TextView>(R.id.tv_current_score)
         tetrisView = findViewById <TetrisView>(R.id.view_tetris)
@@ -30,6 +34,8 @@ class GameActivity : AppCompatActivity() {
         tetrisView.setModel(appModel)
         tetrisView.setOnTouchListener (this::onTetrisViewTouch)
         btnRestart.setOnClickListener (this::btnRestartClick)
+
+
         updateHighScore()
         updateCurrentScore()
     }
@@ -37,6 +43,7 @@ class GameActivity : AppCompatActivity() {
     private fun btnRestartClick(view: View) {
         appModel.restartGame()
     }
+
 
     private fun onTetrisViewTouch(view: View, event: MotionEvent): Boolean {
         if (appModel.isGameOver() || appModel.isGameAwaitingStart()) {
@@ -80,3 +87,6 @@ class GameActivity : AppCompatActivity() {
         tvCurrentScore?.text = "0"
     }
 }
+
+
+
