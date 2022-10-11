@@ -35,9 +35,30 @@ class GameActivity : AppCompatActivity() {
         tetrisView.setOnTouchListener (this::onTetrisViewTouch)
         btnRestart.setOnClickListener (this::btnRestartClick)
 
+        btnLeft.setOnClickListener(this::btnMoveLeft)
+        btnRight.setOnClickListener(this::btnMoveRight)
+        btnDown.setOnClickListener(this::btnMoveDown)
+        btnRotate.setOnClickListener(this::btnMoveRotate)
 
         updateHighScore()
         updateCurrentScore()
+
+    }
+
+    private fun btnMoveLeft(view: View) {
+        moveTetromino(AppModel.Motions.LEFT)
+    }
+
+    private fun btnMoveRight(view: View) {
+        moveTetromino(AppModel.Motions.RIGHT)
+    }
+
+    private fun btnMoveDown(view: View) {
+        moveTetromino(AppModel.Motions.DOWN)
+    }
+
+    private fun btnMoveRotate(view: View) {
+        moveTetromino(AppModel.Motions.ROTATE)
     }
 
     private fun btnRestartClick(view: View) {
