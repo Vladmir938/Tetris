@@ -7,8 +7,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.example.tetris.storage.AppPreferences
 import com.google.android.material.snackbar.Snackbar
-import storage.AppPreferences
+
 
 class MainActivity : AppCompatActivity() {
     var tvHighScore: TextView? = null
